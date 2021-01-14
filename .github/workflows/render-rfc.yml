@@ -1,0 +1,36 @@
+name: Render a RFC
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  render-rfc:
+
+    if: !contains(github.event.pull_request.labels.*.names, 'rfc-approved')
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Run RFC rendering script
+        id: script
+        run: |
+          RETURN_VALUE=$(render-rfc.sh ${{ github.head_ref }})
+          echo "::set-output name=RETURN_VALUE::$RETURN_VALUE"
+          echo "::set-output name=COMMIT_MSG::Update ${{ github.head_ref }}"
+
+      - name: Push to the render repository
+        if: ${{ steps.script.outputs.RETURN_VALUE}} == '0'
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: ${{ github.head_ref }}
+          destination-github-username: 'sifis-home'
+          destination-repository-name: 'wp2-rfcs-rendering'
+          user-email: sifis-home@mail.org
+          commit-message: ${{ steps.script.outputs.COMMIT_MSG}}
