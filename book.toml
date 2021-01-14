@@ -1,0 +1,11 @@
+[book]
+title = "The Sifis-Home WP2 RFC Book"
+
+[output.html]
+no-section-label = true
+additional-js =["mermaid.min.js", "mermaid-init.js"]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[preprocessor.katex]
