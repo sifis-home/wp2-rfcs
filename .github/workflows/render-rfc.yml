@@ -42,4 +42,4 @@ jobs:
           github_token: ${{ secrets.API_TOKEN_GITHUB }}
           branch: master
           directory: wp2-rendering
-          repository: wp2-rfcs-rendering
+          repository: sifis-home/wp2-rfcs-rendering
