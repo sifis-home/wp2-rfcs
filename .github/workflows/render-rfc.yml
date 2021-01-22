@@ -25,7 +25,7 @@ jobs:
       - name: Create the commit for the RFC rendering repository
         if: ${{ steps.script.outputs.RETURN_VALUE}} == '0'
         env:
-            LINK: https://github.com/sifis-home/wp2-rfcs-rendering
+          LINK: https://github.com/sifis-home/wp2-rfcs-rendering
         run: |
           git clone $LINK wp2-rendering
           mv ${{ github.head_ref }}/ wp2-rendering/
@@ -33,12 +33,13 @@ jobs:
           git config --local user.email "sifis-home-wp2@sifis.org"
           git config --local user.name "sifis-home[bot]"
           git add .
-          git commit -m "Update RFC ${{ github.head_ref }}"
+          git commit -m "Update ${{ github.head_ref }} RFC"
 
       - name: Push changes
         if: ${{ steps.script.outputs.RETURN_VALUE}} == '0'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.API_TOKEN_GITHUB }}
-          branch: 'master'
+          branch: master
           directory: wp2-rendering
+          repository: wp2-rfcs-rendering
