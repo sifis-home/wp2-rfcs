@@ -26,7 +26,11 @@ echo "[RFC Proposal]($RFC_FILE)" > src/SUMMARY.md
 ln -frs text/$RFC_FILE src/$RFC_FILE
 
 # Install wkhtmltopdf on Ubuntu
-sudo apt-get update && sudo apt-get install wkhtmltopdf
+LINK="https://github.com/wkhtmltopdf/packaging/releases/download"
+VERSION="0.12.6-1"
+FILENAME="wkhtmltox_$VERSION.focal_amd64.deb"
+curl -LO "$LINK/$VERSION/$FILENAME"
+sudo dpkg -i $FILENAME
 
 # Install mdbook
 LINK="https://github.com/rust-lang/mdBook/releases/download"
@@ -50,8 +54,8 @@ mdbook-mermaid install .
 mdbook build
 
 # Create the PDF for RFC
-#mkdir -p $1
-#wkhtmltopdf --enable-local-file-access book/0000-$1.html $1/$1.pdf
+mkdir -p $1
+wkhtmltopdf --enable-local-file-access book/0000-$1.html $1/$1.pdf
 
 # Make sure the script exit the requested value
 exit 0
