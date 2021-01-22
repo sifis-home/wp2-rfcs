@@ -13,6 +13,14 @@ These fields will be defined starting from the study conducted by the
 and security experts to elicit their opinions on the contents of IoT **privacy**
 and **security** labels.
 
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+
 # Motivation
 [motivation]: #motivation
 
