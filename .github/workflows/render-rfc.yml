@@ -28,8 +28,9 @@ jobs:
           LINK: https://github.com/sifis-home/wp2-rfcs-rendering
         run: |
           git clone $LINK wp2-rendering
-          mv ${{ github.head_ref }}/ wp2-rendering/
           cd wp2-rendering
+          rm -rf ${{ github.head_ref }}/
+          mv ../${{ github.head_ref }}/ .
           git config --local user.email "sifis-home-wp2@sifis.org"
           git config --local user.name "sifis-home[bot]"
           git add .
