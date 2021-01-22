@@ -26,6 +26,7 @@ echo "[RFC Proposal]($RFC_FILE)" > src/SUMMARY.md
 ln -frs text/$RFC_FILE src/$RFC_FILE
 
 # Install wkhtmltopdf on Ubuntu
+sudo apt-get install xfonts-75dpi xfonts-base
 LINK="https://github.com/wkhtmltopdf/packaging/releases/download"
 VERSION="0.12.6-1"
 FILENAME="wkhtmltox_$VERSION.focal_amd64.deb"
