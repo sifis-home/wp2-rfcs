@@ -1,17 +1,30 @@
-- Feature Name: (fill me in with a unique ident, `my_awesome_feature`)
-- Start Date: (fill me in with today's date, YYYY-MM-DD)
+- Feature Name: `label_structure`
+- Start Date: 2021-01-22
 - RFC PR: [sifis-home/wp2-rfcs#0000](https://github.com/sifis-home/wp2-rfcs/pull/0000)
-- Rust Issue: [sifis-home/wp2-rfcs#0000](https://github.com/sifis-home/wp2-rfcs/issues/0000)
+- RFC Issue: [sifis-home/wp2-rfcs#0000](https://github.com/sifis-home/wp2-rfcs/issues/1)
 
 # Summary
 [summary]: #summary
 
-One paragraph explanation of the feature.
+This RFC aims at defining the privacy and security fields which will compose the
+Sifis-Home label.
+These fields will be defined starting from the study conducted by the
+`Carnegie Mellon University` with 22 privacy
+and security experts to elicit their opinions on the contents of IoT **privacy**
+and **security** labels.
 
 # Motivation
 [motivation]: #motivation
 
-Why are we doing this? What use cases does it support? What is the expected outcome?
+We would like to create an artifact which allows to describe, with a certain
+level of detail, the privacy and security issues of an IoT `API`, such that
+developers and users will be well informed on its advantages and risks.
+
+This artifact will be written in order to be easily formatted and convertible in
+other formats if requested. In the end, it __needs__ to be serializable.
+
+The expected outcome will be a file containing extractable fields to be used for
+different contexts.
 
 # Guide-level explanation
 [guide-level-explanation]: #guide-level-explanation
