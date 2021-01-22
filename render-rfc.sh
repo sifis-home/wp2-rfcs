@@ -26,7 +26,7 @@ echo "[RFC Proposal]($RFC_FILE)" > src/SUMMARY.md
 ln -frs text/$RFC_FILE src/$RFC_FILE
 
 # Install wkhtmltopdf dependencies
-sudo apt-get update && sudo apt-get install xorg qt5-default wkhtmltopdf
+sudo apt-get update && sudo apt-get install qt5-default wkhtmltopdf
 
 # Install mdbook
 LINK="https://github.com/rust-lang/mdBook/releases/download"
