@@ -26,14 +26,8 @@ echo "[RFC Proposal]($RFC_FILE)" > src/SUMMARY.md
 ln -frs text/$RFC_FILE src/$RFC_FILE
 
 # Install wkhtmltopdf dependencies
-sudo apt-get install xfonts-75dpi xfonts-base
-
-# Install wkhtmltopdf from sources
-LINK="https://github.com/wkhtmltopdf/packaging/releases/download"
-VERSION="0.12.6-1"
-FILENAME="wkhtmltox_$VERSION.focal_amd64.deb"
-curl -LO "$LINK/$VERSION/$FILENAME"
-sudo dpkg -i $FILENAME
+sudo apt-get install xorg qt5-default
+sudo apt-get install wkhtmltopdf
 
 # Install mdbook
 LINK="https://github.com/rust-lang/mdBook/releases/download"
