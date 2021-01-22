@@ -8,7 +8,7 @@ on:
 jobs:
   render-rfc:
 
-    if: !contains(github.event.pull_request.labels.*.names, 'rfc-approved')
+    if: !(contains(github.event.pull_request.labels.*.names, 'rfc-approved'))
 
     runs-on: ubuntu-latest
 
