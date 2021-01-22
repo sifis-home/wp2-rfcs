@@ -50,8 +50,8 @@ mdbook-mermaid install .
 mdbook build
 
 # Create the PDF for RFC
-mkdir -p $1
-wkhtmltopdf --enable-local-file-access book/0000-$1.html $1/$1.pdf
+#mkdir -p $1
+#wkhtmltopdf --enable-local-file-access book/0000-$1.html $1/$1.pdf
 
 # Make sure the script exit the requested value
 exit 0
