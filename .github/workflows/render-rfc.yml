@@ -22,13 +22,7 @@ jobs:
           RETURN_VALUE=$(./render-rfc.sh ${{ github.head_ref }})
           echo "::set-output name=RETURN_VALUE::$RETURN_VALUE"
 
-      - name: Configure git
-        if: ${{ steps.script.outputs.RETURN_VALUE}} == '0'
-        run: |
-          git config --local user.email "sifis-home-wp2@sifis.org"
-          git config --local user.name "sifis-home[bot]"
-
-      - name: Create commit
+      - name: Create the commit for the RFC rendering repository
         if: ${{ steps.script.outputs.RETURN_VALUE}} == '0'
         env:
             LINK: https://github.com/sifis-home/wp2-rfcs-rendering
@@ -36,6 +30,8 @@ jobs:
           git clone $LINK wp2-rendering
           mv ${{ github.head_ref }}/ wp2-rendering/
           cd wp2-rendering
+          git config --local user.email "sifis-home-wp2@sifis.org"
+          git config --local user.name "sifis-home[bot]"
           git commit -m "Update RFC ${{ github.head_ref }}" -a
 
       - name: Push changes
