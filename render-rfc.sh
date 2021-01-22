@@ -26,7 +26,11 @@ echo "[RFC Proposal]($RFC_FILE)" > src/SUMMARY.md
 ln -frs text/$RFC_FILE src/$RFC_FILE
 
 # Install wkhtmltopdf dependencies
-sudo apt-get update && sudo apt-get install qt5-default wkhtmltopdf
+sudo apt-get update
+sudo apt-get install qt5-default
+
+# Install wkhtmltopdf
+sudo apt-get install wkhtmltopdf
 
 # Install mdbook
 LINK="https://github.com/rust-lang/mdBook/releases/download"
@@ -40,7 +44,7 @@ VERSION="0.7.1"
 FILENAME="mdbook-mermaid-v$VERSION-x86_64-unknown-linux-gnu.tar.gz"
 curl -L "$LINK/v$VERSION/$FILENAME" | tar xz -C $HOME/.cargo/bin
 
-# Install mdbook-katek
+# Install mdbook-katek (
 #cargo install mdbook-katek
 
 # Run mdbook-mermaid
