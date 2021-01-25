@@ -203,6 +203,7 @@ merged into the RFC repository as a markdown file. At that point the RFC is
 &quot;active&quot; and may be implemented with the goal of eventual inclusion into Rust.</p>
 <ul>
 <li>Fork the RFC repo <a href="https://github.com/sifis-home/wp2-rfcs">RFC repository</a></li>
+<li>Create a branch named as the feature you want to create (e.g <code>my-feature</code>).</li>
 <li>Copy <code>0000-template.md</code> to <code>text/0000-my-feature.md</code> (where &quot;my-feature&quot; is
 descriptive). Don't assign an RFC number yet; This is going to be the PR
 number and we'll rename the file accordingly if the RFC is accepted.</li>
@@ -250,7 +251,9 @@ days. It is also advertised widely. This way all
 stakeholders have a chance to lodge any final objections before a decision
 is reached.</li>
 <li>In most cases, the FCP period is quiet, and the RFC is either merged or
-closed. However, sometimes substantial new arguments or ideas are raised,
+closed. If a RFC is accepted, before merging it, the label <code>approved-rfc</code>
+MUST be added to the PR in order to stop the CI rendering the RFC.
+However, sometimes substantial new arguments or ideas are raised,
 the FCP is canceled, and the RFC goes back into development mode.</li>
 </ul>
 <h2><a class="header" href="#the-rfc-life-cycle" id="the-rfc-life-cycle">The RFC life-cycle</a></h2>
